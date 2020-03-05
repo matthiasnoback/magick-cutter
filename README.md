@@ -1,9 +1,11 @@
-- Download <https://imagemagick.org/download/binaries/ImageMagick-7.0.9-27-Q16-x64-dll.exe> en voer het installatieprogramma uit.
+- Download <https://imagemagick.org/download/binaries/ImageMagick-7.0.9-27-Q16-x64-dll.exe> en voer het installatieprogramma uit. Kies voor alle standaardopties.
 - Ga naar <https://git-scm.com/downloads>. Kies voor "Windows". Download het installatieprogramma en voer het uit.
 - Open <https://raw.githubusercontent.com/matthiasnoback/magick-cutter/master/run.sh> in de browser. Kies voor "Bestand" > "Pagina opslaan als". Zet het bestand `run.sh` in de map waar je de foto's bewaart.
-- Ga in de verkenner naar die map.
-- Klik rechts op de map en kies voor "Open Git Bash here"
-- Je ziet dan een zwart venster. Je kunt dan het programma gebruiken.
+- Als je alle foto's in de map in een keer wil converteren kan je dubbelklikken op het bestand `run.sh`. Na afloop zie je dan alle plaatjes in de map verschijnen. Lukt het niet, volg dan onderstaande procedure.
+
+- Ga in de verkenner naar de map waar `run.sh` staat.
+- Klik rechts op de map en kies voor "Git Bash here".
+- Je ziet een zwart venster. Je kunt hier het programma gebruiken.
 
 Eén plaatje opknippen:
 
