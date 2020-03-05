@@ -13,10 +13,10 @@ function extract {
     echo "Number of vertical tiles: ${vertical_tiles}"
     echo "Target file name: ${target_file_name}"
 
-    image_width=$(convert ${source_file} -format "%w" info:)
+    image_width=$(magick ${source_file} -format "%w" info:)
     echo "Image width: ${image_width} pixels"
 
-    image_height=$(convert ${source_file} -format "%h" info:)
+    image_height=$(magick ${source_file} -format "%h" info:)
     echo "Image height: ${image_height} pixels"
 
     ((tile_width=image_width / horizontal_tiles))
@@ -38,8 +38,9 @@ function extract {
             target_file="${target_file_name}_${tile_number}.jpg"
             echo "Save it to ${target_file}"
 
-            convert -size ${image_width}x${image_height} \
-              "${source_file}[${tile_width}x${tile_height}+${offset_x}+${offset_y}]" \
+            magick -size ${image_width}x${image_height} \
+              -extract "${tile_width}x${tile_height}+${offset_x}+${offset_y}" \
+              ${source_file} \
               ${target_file}
 
             ((tile_number++))
