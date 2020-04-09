@@ -40,7 +40,7 @@ function add_watermark {
   ((margin = shortest_side / 20))
   echo "- Watermark should have a margin to the right and bottom of ${margin} pixels"
 
-  composite \
+  magick composite \
       -dissolve 50 \
       -gravity SouthEast \
       -geometry "${width_of_watermark}"x"${height_of_watermark}"+"${margin}"+"${margin}" \
@@ -54,17 +54,14 @@ function add_watermark {
 function process_file {
     source_file="${1}"
     watermark_file="${2}"
-    target_directory="${3}"
 
-    if [ ! -d "${target_directory}" ]; then
-        mkdir "${target_directory}"
+    if [[ ${source_file} =~ (.+).jpg$ ]]; then
+        target_file_name="${BASH_REMATCH[1]}-met-watermerk.jpg"
+    else
+        target_file_name="met-watermerk-${source_file}"
     fi
 
-    source_file_name=${source_file##*/}
-
-    target_file="${target_directory}/${source_file_name}"
-
-    add_watermark "${source_file}" "${watermark_file}" "${target_file}"
+    add_watermark "${source_file}" "${watermark_file}" "${target_file_name}"
 }
 
 source="${1-.}"
@@ -80,13 +77,13 @@ if [ -d "${source}" ]; then
         if [ -f "${source_file}" ]; then
           echo "${source_file}"
 
-          process_file "${source_file}" "${2-watermark.png}" "${3-target}"
-          image_counter=$((image_counter++))
+          process_file "${source_file}" "${2-watermark.png}"
+          ((image_counter=image_counter + 1))
         fi
     done
     echo "Added watermark to ${image_counter} image(s)"
 else
     # The source file is a single file
-    process_file "${source}" "${2-watermark.png}" "${3-target}"
+    process_file "${source}" "${2-watermark.png}"
     echo "Added watermark to 1 image"
 fi
