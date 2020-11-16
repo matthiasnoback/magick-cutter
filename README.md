@@ -1,3 +1,14 @@
+# Installing Imagick on Ubuntu
+
+Go to <https://imagemagick.org/script/download.php> and download the magick binary.
+
+```bash
+chmod +x ~/Downloads/magick
+sudo mv ~/Downloads/magick /usr/bin
+```
+
+# Installeer Imagick op Windows
+
 - Download <https://imagemagick.org/download/binaries/ImageMagick-7.0.9-27-Q16-x64-dll.exe> en voer het installatieprogramma uit. Kies voor alle standaardopties.
 - Ga naar <https://git-scm.com/downloads>. Kies voor "Windows". Download het installatieprogramma en voer het uit.
 - Open <https://raw.githubusercontent.com/matthiasnoback/magick-cutter/master/run.sh> in de browser. Kies voor "Bestand" > "Pagina opslaan als". Zet het bestand `run.sh` in de map waar je de foto's bewaart.
