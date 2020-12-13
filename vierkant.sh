@@ -42,9 +42,9 @@ function process_file {
     source_file="${1}"
 
     if [[ ${source_file} =~ (.+).jpg$ ]]; then
-        target_file_name="${BASH_REMATCH[1]}-vierkant.jpg"
+        target_file_name="${BASH_REMATCH[1]}-SQ.jpg"
     else
-        target_file_name="vierkant-${source_file}"
+        target_file_name="SQ-${source_file}"
     fi
 
     make_square "${source_file}" "${target_file_name}"

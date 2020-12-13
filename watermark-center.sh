@@ -59,9 +59,9 @@ function process_file {
     watermark_file="${2}"
 
     if [[ ${source_file} =~ (.+).jpg$ ]]; then
-        target_file_name="${BASH_REMATCH[1]}-met-watermerk-in-het-midden.jpg"
+        target_file_name="${BASH_REMATCH[1]}-WG.jpg"
     else
-        target_file_name="met-watermerk-in-het-midden-${source_file}"
+        target_file_name="WG-${source_file}"
     fi
 
     add_watermark "${source_file}" "${watermark_file}" "${target_file_name}"
